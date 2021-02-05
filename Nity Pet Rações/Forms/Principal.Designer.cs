@@ -360,6 +360,7 @@ namespace Nity_Pet_Rações
             this.vendaFiada.TabIndex = 12;
             this.vendaFiada.Text = "Venda Fiada";
             this.vendaFiada.UseVisualStyleBackColor = true;
+            this.vendaFiada.CheckedChanged += new System.EventHandler(this.vendaFiada_CheckedChanged);
             // 
             // textBox1
             // 
@@ -679,6 +680,7 @@ namespace Nity_Pet_Rações
             this.Name = "Principal";
             this.Text = "Nity Pet Rações";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Principal_Load);
             this.panel10.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel11.ResumeLayout(false);

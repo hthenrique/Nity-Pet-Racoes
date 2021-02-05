@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using Nity_Pet_Rações.Forms.Forcedores;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Nity_Pet_Rações
@@ -17,24 +12,56 @@ namespace Nity_Pet_Rações
             InitializeComponent();
         }
 
+        private void Principal_Load(object sender, EventArgs e)
+        {
+            vendaFiadaCheck();
+        }
+
+        private void vendaFiada_CheckedChanged(object sender, EventArgs e)
+        {
+            vendaFiadaCheck();
+        }
+
         private void addFornecedor_Click(object sender, EventArgs e)
         {
-            Forms.Forcedores.AdicionarFornecedor adicionarFornecedor = new Forms.Forcedores.AdicionarFornecedor();
+            AdicionarFornecedor adicionarFornecedor = new AdicionarFornecedor();
             adicionarFornecedor.ShowDialog();
         }
 
         private void consultarFornecedor_Click(object sender, EventArgs e)
         {
-            var consultarFornecedor = Utils.InstanciarForms.VerificarForm(this, "ConsultarForncedor");
-            if(consultarFornecedor == null)
+            
+            var consultarFornecedor = Utils.InstanciarForms.VerificarForm(this, "ConsultarFornecedor");
+            
+            if (consultarFornecedor == null)
             {
                 return;
             }
-            else
+            if (Application.OpenForms.OfType<ConsultarFornecedor>().Count() > 0)
             {
                 consultarFornecedor.MdiParent = this;
                 consultarFornecedor.Show();
+                //consultarFornecedor.BringToFront();
+                //consultarFornecedor.Activate();             
             }
         }
+
+        private void vendaFiadaCheck()
+        {
+            switch (vendaFiada.CheckState)
+            {
+                case CheckState.Checked:
+                    cpfTextBox.Enabled = true;
+                    buscarCpfBtn.Enabled = true;
+
+                    break;
+                case CheckState.Unchecked:
+                    cpfTextBox.Enabled = false;
+                    buscarCpfBtn.Enabled = false;
+
+                    break;
+            }
+        }
+        
     }
 }
