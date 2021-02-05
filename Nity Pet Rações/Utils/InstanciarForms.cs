@@ -6,33 +6,36 @@ namespace Nity_Pet_Rações.Utils
 {
     public static class InstanciarForms
     {
-        public static Form VerificarForm(Principal principal, string nomeForm)
+        public static Form VerificarForm(string nomeForm)
         {
-            Form instancia = null;
+            Form form = null;
             switch (nomeForm)
             {
                 case "ConsultarFornecedor":
-                    foreach(Form childForm in principal.MdiChildren)
+                    form = Application.OpenForms.OfType<ConsultarFornecedor>().FirstOrDefault();
+                    if (form == null)
                     {
-                        if (childForm.Name.Equals(nomeForm))
-                        {
-                            instancia = childForm;
-                        }
-                    }
-                    if(instancia != null)
-                    {
-                        instancia.BringToFront();
-                        instancia.Activate();
-                        return null;
+                        form = new ConsultarFornecedor();
+                        form.Show();
+
                     }
                     else
                     {
-                        instancia = new ConsultarFornecedor();
-                        
+                        form.BringToFront();
+                        form.Activate();
+                        return null;
+                    }
+                    break;
+                case "AdicionarFornecedor":
+                    form = Application.OpenForms.OfType<AdicionarFornecedor>().FirstOrDefault();
+                    if(form == null)
+                    {
+                        form = new AdicionarFornecedor();
+                        form.ShowDialog();
                     }
                     break;
             }
-            return instancia;
+            return form;
         }
     }
 }

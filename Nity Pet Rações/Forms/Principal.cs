@@ -1,4 +1,5 @@
 ﻿using Nity_Pet_Rações.Forms.Forcedores;
+using Nity_Pet_Rações.Utils;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -25,25 +26,12 @@ namespace Nity_Pet_Rações
 
         private void addFornecedor_Click(object sender, EventArgs e)
         {
-            AdicionarFornecedor adicionarFornecedor = new AdicionarFornecedor();
-            adicionarFornecedor.ShowDialog();
+            InstanciarForms.VerificarForm("AdicionarFornecedor");
         }
 
         private void consultarFornecedor_Click(object sender, EventArgs e)
         {
-
-            var consultarFornecedor = Application.OpenForms.OfType<ConsultarFornecedor>().FirstOrDefault();
-            if (consultarFornecedor == null)
-            {
-                consultarFornecedor = new ConsultarFornecedor();
-                consultarFornecedor.Show();
-
-            }
-            else
-            {
-                consultarFornecedor.BringToFront();
-                consultarFornecedor.Activate();
-            }
+            InstanciarForms.VerificarForm("ConsultarFornecedor");
         }
         private void vendaFiadaCheck()
         {
