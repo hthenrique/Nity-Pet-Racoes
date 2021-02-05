@@ -33,7 +33,7 @@ namespace Nity_Pet_Rações
         {
 
             var consultarFornecedor = Application.OpenForms.OfType<ConsultarFornecedor>().FirstOrDefault();
-            if(consultarFornecedor == null)
+            if (consultarFornecedor == null)
             {
                 consultarFornecedor = new ConsultarFornecedor();
                 consultarFornecedor.Show();
@@ -44,46 +44,7 @@ namespace Nity_Pet_Rações
                 consultarFornecedor.BringToFront();
                 consultarFornecedor.Activate();
             }
-
-            //this.MostrarOuCriar<ConsultarFornecedor>();
-
-            /*var consultarFornecedor = Utils.InstanciarForms.VerificarForm(this, "ConsultarFornecedor");
-
-            if (consultarFornecedor == null)
-            {
-                return;
-            }
-            else
-            {
-                consultarFornecedor.MdiParent = this;
-                consultarFornecedor.Show();
-            }
-            if (Application.OpenForms.OfType<ConsultarFornecedor>().Count() > 0)
-            {
-
-                //consultarFornecedor.BringToFront();
-                //consultarFornecedor.Activate();             
-            }*/
-            //var consultarFornecedor = new ConsultarFornecedor();
-            //consultarFornecedor.ShowDialog();
         }
-
-        private void MostrarOuCriar<TForm>() where TForm: Form, new()
-        {
-            var instancia = Application.OpenForms.OfType<TForm>().FirstOrDefault();
-            if(instancia == null)
-            {
-                instancia = new TForm();
-                instancia.MdiParent = this;
-                instancia.Show();
-            }
-            else
-            {
-                instancia.BringToFront();
-                instancia.Activate();
-            }
-        }
-
         private void vendaFiadaCheck()
         {
             switch (vendaFiada.CheckState)
