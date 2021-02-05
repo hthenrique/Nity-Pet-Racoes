@@ -10,6 +10,7 @@ namespace Nity_Pet_Rações
         public Principal()
         {
             InitializeComponent();
+            this.IsMdiContainer = true;
         }
 
         private void Principal_Load(object sender, EventArgs e)
@@ -30,19 +31,56 @@ namespace Nity_Pet_Rações
 
         private void consultarFornecedor_Click(object sender, EventArgs e)
         {
-            
-            var consultarFornecedor = Utils.InstanciarForms.VerificarForm(this, "ConsultarFornecedor");
-            
+
+            var consultarFornecedor = Application.OpenForms.OfType<ConsultarFornecedor>().FirstOrDefault();
+            if(consultarFornecedor == null)
+            {
+                consultarFornecedor = new ConsultarFornecedor();
+                consultarFornecedor.Show();
+
+            }
+            else
+            {
+                consultarFornecedor.BringToFront();
+                consultarFornecedor.Activate();
+            }
+
+            //this.MostrarOuCriar<ConsultarFornecedor>();
+
+            /*var consultarFornecedor = Utils.InstanciarForms.VerificarForm(this, "ConsultarFornecedor");
+
             if (consultarFornecedor == null)
             {
                 return;
             }
-            if (Application.OpenForms.OfType<ConsultarFornecedor>().Count() > 0)
+            else
             {
                 consultarFornecedor.MdiParent = this;
                 consultarFornecedor.Show();
+            }
+            if (Application.OpenForms.OfType<ConsultarFornecedor>().Count() > 0)
+            {
+
                 //consultarFornecedor.BringToFront();
                 //consultarFornecedor.Activate();             
+            }*/
+            //var consultarFornecedor = new ConsultarFornecedor();
+            //consultarFornecedor.ShowDialog();
+        }
+
+        private void MostrarOuCriar<TForm>() where TForm: Form, new()
+        {
+            var instancia = Application.OpenForms.OfType<TForm>().FirstOrDefault();
+            if(instancia == null)
+            {
+                instancia = new TForm();
+                instancia.MdiParent = this;
+                instancia.Show();
+            }
+            else
+            {
+                instancia.BringToFront();
+                instancia.Activate();
             }
         }
 
