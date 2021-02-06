@@ -30,9 +30,9 @@ namespace Nity_Pet_Rações.Forms.Forcedores
         private void InitializeComponent()
         {
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textBoxTelFornecedor = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.textBoxEndFornecedor = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxTelFornecedor = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxNomeFornecedor = new System.Windows.Forms.TextBox();
@@ -50,9 +50,9 @@ namespace Nity_Pet_Rações.Forms.Forcedores
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.textBoxTelFornecedor);
-            this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.textBoxEndFornecedor);
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.textBoxTelFornecedor);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.textBoxNomeFornecedor);
@@ -62,12 +62,12 @@ namespace Nity_Pet_Rações.Forms.Forcedores
             this.panel4.Size = new System.Drawing.Size(431, 141);
             this.panel4.TabIndex = 22;
             // 
-            // textBoxTelFornecedor
+            // textBoxEndFornecedor
             // 
-            this.textBoxTelFornecedor.Location = new System.Drawing.Point(13, 70);
-            this.textBoxTelFornecedor.Name = "textBoxTelFornecedor";
-            this.textBoxTelFornecedor.Size = new System.Drawing.Size(187, 20);
-            this.textBoxTelFornecedor.TabIndex = 29;
+            this.textBoxEndFornecedor.Location = new System.Drawing.Point(12, 109);
+            this.textBoxEndFornecedor.Name = "textBoxEndFornecedor";
+            this.textBoxEndFornecedor.Size = new System.Drawing.Size(406, 20);
+            this.textBoxEndFornecedor.TabIndex = 29;
             // 
             // label5
             // 
@@ -78,14 +78,14 @@ namespace Nity_Pet_Rações.Forms.Forcedores
             this.label5.TabIndex = 28;
             this.label5.Text = "Telefone Fornecedora";
             // 
-            // textBoxEndFornecedor
+            // textBoxTelFornecedor
             // 
-            this.textBoxEndFornecedor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxTelFornecedor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxEndFornecedor.Location = new System.Drawing.Point(12, 110);
-            this.textBoxEndFornecedor.Name = "textBoxEndFornecedor";
-            this.textBoxEndFornecedor.Size = new System.Drawing.Size(406, 20);
-            this.textBoxEndFornecedor.TabIndex = 27;
+            this.textBoxTelFornecedor.Location = new System.Drawing.Point(12, 70);
+            this.textBoxTelFornecedor.Name = "textBoxTelFornecedor";
+            this.textBoxTelFornecedor.Size = new System.Drawing.Size(187, 20);
+            this.textBoxTelFornecedor.TabIndex = 27;
             // 
             // label4
             // 
@@ -210,9 +210,9 @@ namespace Nity_Pet_Rações.Forms.Forcedores
         #endregion
 
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox textBoxTelFornecedor;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxEndFornecedor;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxTelFornecedor;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxNomeFornecedor;

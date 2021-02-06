@@ -30,60 +30,126 @@ namespace Nity_Pet_Rações.Forms.Forcedores
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.listaFornecedores = new System.Windows.Forms.DataGridView();
             this.fornecedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bDNityDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.listaFornecedores = new System.Windows.Forms.DataGridView();
+            this.idFornecedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeFornecedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telFornecedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endFornecedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fornecedorBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.bDNityDataSet = new Nity_Pet_Rações.BDNityDataSet();
             this.panel1 = new System.Windows.Forms.Panel();
             this.atualizarListaBtn = new System.Windows.Forms.Button();
             this.addFornecedor = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.bDNityDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.listaFornecedores)).BeginInit();
+            this.fornecedorTableAdapter = new Nity_Pet_Rações.BDNityDataSetTableAdapters.FornecedorTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.fornecedorBindingSource)).BeginInit();
-            this.panel4.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bDNityDataSetBindingSource)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listaFornecedores)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fornecedorBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bDNityDataSet)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // listaFornecedores
-            // 
-            this.listaFornecedores.AutoGenerateColumns = false;
-            this.listaFornecedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.listaFornecedores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
-            this.listaFornecedores.BackgroundColor = System.Drawing.Color.White;
-            this.listaFornecedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listaFornecedores.DataSource = this.fornecedorBindingSource;
-            this.listaFornecedores.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listaFornecedores.GridColor = System.Drawing.Color.SlateGray;
-            this.listaFornecedores.Location = new System.Drawing.Point(0, 61);
-            this.listaFornecedores.Name = "listaFornecedores";
-            this.listaFornecedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.listaFornecedores.Size = new System.Drawing.Size(800, 327);
-            this.listaFornecedores.TabIndex = 1;
-            this.listaFornecedores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listaFornecedores_CellDoubleClick);
             // 
             // fornecedorBindingSource
             // 
             this.fornecedorBindingSource.DataMember = "Fornecedor";
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this.panel9);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(800, 450);
+            this.panel3.TabIndex = 1;
+            // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.listaFornecedores);
+            this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.panel1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 62);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(800, 388);
             this.panel4.TabIndex = 7;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.listaFornecedores);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(0, 61);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(800, 327);
+            this.panel5.TabIndex = 7;
+            // 
+            // listaFornecedores
+            // 
+            this.listaFornecedores.AutoGenerateColumns = false;
+            this.listaFornecedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.listaFornecedores.BackgroundColor = System.Drawing.Color.White;
+            this.listaFornecedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.listaFornecedores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idFornecedorDataGridViewTextBoxColumn,
+            this.nomeFornecedorDataGridViewTextBoxColumn,
+            this.telFornecedorDataGridViewTextBoxColumn,
+            this.endFornecedorDataGridViewTextBoxColumn});
+            this.listaFornecedores.DataSource = this.fornecedorBindingSource1;
+            this.listaFornecedores.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listaFornecedores.Location = new System.Drawing.Point(0, 0);
+            this.listaFornecedores.Name = "listaFornecedores";
+            this.listaFornecedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.listaFornecedores.Size = new System.Drawing.Size(800, 327);
+            this.listaFornecedores.TabIndex = 0;
+            this.listaFornecedores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listaFornecedores_CellDoubleClick);
+            // 
+            // idFornecedorDataGridViewTextBoxColumn
+            // 
+            this.idFornecedorDataGridViewTextBoxColumn.DataPropertyName = "IdFornecedor";
+            this.idFornecedorDataGridViewTextBoxColumn.HeaderText = "IdFornecedor";
+            this.idFornecedorDataGridViewTextBoxColumn.Name = "idFornecedorDataGridViewTextBoxColumn";
+            this.idFornecedorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nomeFornecedorDataGridViewTextBoxColumn
+            // 
+            this.nomeFornecedorDataGridViewTextBoxColumn.DataPropertyName = "nomeFornecedor";
+            this.nomeFornecedorDataGridViewTextBoxColumn.HeaderText = "nomeFornecedor";
+            this.nomeFornecedorDataGridViewTextBoxColumn.Name = "nomeFornecedorDataGridViewTextBoxColumn";
+            // 
+            // telFornecedorDataGridViewTextBoxColumn
+            // 
+            this.telFornecedorDataGridViewTextBoxColumn.DataPropertyName = "telFornecedor";
+            this.telFornecedorDataGridViewTextBoxColumn.HeaderText = "telFornecedor";
+            this.telFornecedorDataGridViewTextBoxColumn.Name = "telFornecedorDataGridViewTextBoxColumn";
+            // 
+            // endFornecedorDataGridViewTextBoxColumn
+            // 
+            this.endFornecedorDataGridViewTextBoxColumn.DataPropertyName = "endFornecedor";
+            this.endFornecedorDataGridViewTextBoxColumn.HeaderText = "endFornecedor";
+            this.endFornecedorDataGridViewTextBoxColumn.Name = "endFornecedorDataGridViewTextBoxColumn";
+            // 
+            // fornecedorBindingSource1
+            // 
+            this.fornecedorBindingSource1.DataMember = "Fornecedor";
+            this.fornecedorBindingSource1.DataSource = this.bDNityDataSet;
+            // 
+            // bDNityDataSet
+            // 
+            this.bDNityDataSet.DataSetName = "BDNityDataSet";
+            this.bDNityDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panel1
             // 
@@ -110,6 +176,7 @@ namespace Nity_Pet_Rações.Forms.Forcedores
             this.atualizarListaBtn.TabIndex = 26;
             this.atualizarListaBtn.Text = "Atualizar Lista";
             this.atualizarListaBtn.UseVisualStyleBackColor = false;
+            this.atualizarListaBtn.Click += new System.EventHandler(this.atualizarListaBtn_Click);
             // 
             // addFornecedor
             // 
@@ -154,16 +221,6 @@ namespace Nity_Pet_Rações.Forms.Forcedores
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome do Forncedor";
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.panel9);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(800, 450);
-            this.panel3.TabIndex = 0;
-            // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(153)))), ((int)(((byte)(243)))));
@@ -189,34 +246,32 @@ namespace Nity_Pet_Rações.Forms.Forcedores
             this.label3.Text = "Consultar Fornecedores";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel2
+            // fornecedorTableAdapter
             // 
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 450);
-            this.panel2.TabIndex = 8;
+            this.fornecedorTableAdapter.ClearBeforeFill = true;
             // 
             // ConsultarFornecedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel3);
             this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "ConsultarFornecedor";
             this.Text = "ConsultarFornecedor";
             this.Load += new System.EventHandler(this.ConsultarFornecedor_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.listaFornecedores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fornecedorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bDNityDataSetBindingSource)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.listaFornecedores)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fornecedorBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bDNityDataSet)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel3.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bDNityDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -225,17 +280,24 @@ namespace Nity_Pet_Rações.Forms.Forcedores
 
         private System.Windows.Forms.BindingSource bDNityDataSetBindingSource;
         private System.Windows.Forms.BindingSource fornecedorBindingSource;
-        private System.Windows.Forms.DataGridView listaFornecedores;
+        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button atualizarListaBtn;
         private System.Windows.Forms.Button addFornecedor;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel2;
+        private BDNityDataSet bDNityDataSet;
+        private System.Windows.Forms.BindingSource fornecedorBindingSource1;
+        private BDNityDataSetTableAdapters.FornecedorTableAdapter fornecedorTableAdapter;
+        private System.Windows.Forms.DataGridView listaFornecedores;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idFornecedorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeFornecedorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telFornecedorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn endFornecedorDataGridViewTextBoxColumn;
     }
 }

@@ -17,7 +17,6 @@ namespace Nity_Pet_Rações.Utils
                     {
                         form = new ConsultarFornecedor();
                         form.Show();
-
                     }
                     else
                     {
@@ -26,6 +25,7 @@ namespace Nity_Pet_Rações.Utils
                         return null;
                     }
                     break;
+
                 case "AdicionarFornecedor":
                     form = Application.OpenForms.OfType<AdicionarFornecedor>().FirstOrDefault();
                     if(form == null)

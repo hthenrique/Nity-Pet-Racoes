@@ -21,8 +21,8 @@ namespace Nity_Pet_Rações.Forms.Forcedores
         private void salvarFornecedor_Click(object sender, EventArgs e)
         {
             string nomeFornecedor = textBoxNomeFornecedor.Text.ToString();
-            string telFornecedor = textBoxTelFornecedor.Text.ToString();
-            string endFornecedor = textBoxEndFornecedor.Text.ToString();
+            string telFornecedor = textBoxEndFornecedor.Text.ToString();
+            string endFornecedor = this.textBoxTelFornecedor.Text.ToString();
 
             ModelFornecedor modelFornecedor = new ModelFornecedor();
             modelFornecedor.nomeFornecedor = nomeFornecedor;

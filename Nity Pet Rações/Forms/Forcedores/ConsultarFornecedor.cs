@@ -1,25 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Nity_Pet_Rações.Utils;
 
 namespace Nity_Pet_Rações.Forms.Forcedores
 {
     public partial class ConsultarFornecedor : Form
     {
+        Banco_de_Dados.BDHelper bDHelper;
         public ConsultarFornecedor()
         {
             InitializeComponent();
         }
         private void ConsultarFornecedor_Load(object sender, EventArgs e)
         {
-            Banco_de_Dados.BDHelper bDHelper = new Banco_de_Dados.BDHelper();
+            listaFornecedores.Columns[0].HeaderText = "Id";
+            listaFornecedores.Columns[1].HeaderText = "Nome";
+            listaFornecedores.Columns[2].HeaderText = "Telefone";
+            listaFornecedores.Columns[3].HeaderText = "Endereço";
+
+            bDHelper = new Banco_de_Dados.BDHelper();
             listaFornecedores.DataSource = bDHelper.consultarFornecedores();
+            
         }
 
         private void listaFornecedores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -33,8 +34,7 @@ namespace Nity_Pet_Rações.Forms.Forcedores
             string caption = "Excluir Fornecedor";
             MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            Banco_de_Dados.BDHelper bDHelper = new Banco_de_Dados.BDHelper();
-            string returno = bDHelper.excluirFornecedor(id);
+            string returno = BDControlador.deletar(id, "Fornecedor");
 
             if (string.IsNullOrEmpty(returno))
             {
@@ -49,8 +49,12 @@ namespace Nity_Pet_Rações.Forms.Forcedores
 
         private void addFornecedor_Click(object sender, EventArgs e)
         {
-            AdicionarFornecedor adicionarFornecedor = new AdicionarFornecedor();
-            adicionarFornecedor.ShowDialog();
+            InstanciarForms.VerificarForm("AdicionarFornecedor");
+        }
+
+        private void atualizarListaBtn_Click(object sender, EventArgs e)
+        {
+            listaFornecedores.DataSource = bDHelper.consultarFornecedores();
         }
     }
 }

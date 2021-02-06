@@ -11,7 +11,6 @@ namespace Nity_Pet_Rações
         public Principal()
         {
             InitializeComponent();
-            this.IsMdiContainer = true;
         }
 
         private void Principal_Load(object sender, EventArgs e)

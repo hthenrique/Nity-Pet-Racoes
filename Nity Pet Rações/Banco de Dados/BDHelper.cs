@@ -82,25 +82,16 @@ namespace Nity_Pet_Rações.Banco_de_Dados
             sqlconnection = new SqlConnection(bdCaminho);
             sqlCommand = new SqlCommand(sqlString, sqlconnection);
 
-            try
+            using (sqlconnection)
             {
-                using (sqlconnection)
+                using (sqlCommand)
                 {
-                    using (sqlCommand)
-                    {
-                        sqlconnection.Open();
-                        sqlDataReader = sqlCommand.ExecuteReader();
-                        dataTable.Load(sqlDataReader);
-                    }
+                    sqlconnection.Open();
+                    sqlDataReader = sqlCommand.ExecuteReader();
+                    dataTable.Load(sqlDataReader);
                 }
             }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                return dataTable = null;
-            }
-            
-            return dataTable;
+            return dataTable;            
         }
     }
 }
