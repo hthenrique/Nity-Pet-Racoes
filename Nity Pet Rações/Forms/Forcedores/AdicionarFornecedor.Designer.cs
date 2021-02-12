@@ -31,8 +31,6 @@ namespace Nity_Pet_Rações.Forms.Forcedores
         {
             this.panel4 = new System.Windows.Forms.Panel();
             this.textBoxEndFornecedor = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxTelFornecedor = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxNomeFornecedor = new System.Windows.Forms.TextBox();
@@ -42,6 +40,8 @@ namespace Nity_Pet_Rações.Forms.Forcedores
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBoxTelFornecedor = new System.Windows.Forms.MaskedTextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -50,9 +50,9 @@ namespace Nity_Pet_Rações.Forms.Forcedores
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.textBoxEndFornecedor);
-            this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.textBoxTelFornecedor);
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.textBoxEndFornecedor);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.textBoxNomeFornecedor);
@@ -64,33 +64,17 @@ namespace Nity_Pet_Rações.Forms.Forcedores
             // 
             // textBoxEndFornecedor
             // 
-            this.textBoxEndFornecedor.Location = new System.Drawing.Point(12, 109);
+            this.textBoxEndFornecedor.Location = new System.Drawing.Point(12, 66);
+            this.textBoxEndFornecedor.MaxLength = 150;
             this.textBoxEndFornecedor.Name = "textBoxEndFornecedor";
             this.textBoxEndFornecedor.Size = new System.Drawing.Size(406, 20);
             this.textBoxEndFornecedor.TabIndex = 29;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 54);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 13);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "Telefone Fornecedora";
-            // 
-            // textBoxTelFornecedor
-            // 
-            this.textBoxTelFornecedor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxTelFornecedor.Location = new System.Drawing.Point(12, 70);
-            this.textBoxTelFornecedor.Name = "textBoxTelFornecedor";
-            this.textBoxTelFornecedor.Size = new System.Drawing.Size(187, 20);
-            this.textBoxTelFornecedor.TabIndex = 27;
+            this.textBoxEndFornecedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxEndFornecedor_KeyPress);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 93);
+            this.label4.Location = new System.Drawing.Point(12, 50);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 13);
             this.label4.TabIndex = 26;
@@ -110,9 +94,11 @@ namespace Nity_Pet_Rações.Forms.Forcedores
             this.textBoxNomeFornecedor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxNomeFornecedor.Location = new System.Drawing.Point(12, 27);
+            this.textBoxNomeFornecedor.MaxLength = 150;
             this.textBoxNomeFornecedor.Name = "textBoxNomeFornecedor";
             this.textBoxNomeFornecedor.Size = new System.Drawing.Size(406, 20);
             this.textBoxNomeFornecedor.TabIndex = 25;
+            this.textBoxNomeFornecedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNomeFornecedor_KeyPress);
             // 
             // label2
             // 
@@ -184,6 +170,23 @@ namespace Nity_Pet_Rações.Forms.Forcedores
             this.panel1.Size = new System.Drawing.Size(431, 62);
             this.panel1.TabIndex = 20;
             // 
+            // textBoxTelFornecedor
+            // 
+            this.textBoxTelFornecedor.Location = new System.Drawing.Point(12, 105);
+            this.textBoxTelFornecedor.Mask = "(99) 00000-0000";
+            this.textBoxTelFornecedor.Name = "textBoxTelFornecedor";
+            this.textBoxTelFornecedor.Size = new System.Drawing.Size(89, 20);
+            this.textBoxTelFornecedor.TabIndex = 32;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 89);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(112, 13);
+            this.label5.TabIndex = 31;
+            this.label5.Text = "Telefone Fornecedora";
+            // 
             // AdicionarFornecedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,6 +201,7 @@ namespace Nity_Pet_Rações.Forms.Forcedores
             this.MinimumSize = new System.Drawing.Size(447, 287);
             this.Name = "AdicionarFornecedor";
             this.Text = "Adicionar Fornecedor";
+            this.Load += new System.EventHandler(this.AdicionarFornecedor_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -211,8 +215,6 @@ namespace Nity_Pet_Rações.Forms.Forcedores
 
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox textBoxEndFornecedor;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBoxTelFornecedor;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxNomeFornecedor;
@@ -222,5 +224,7 @@ namespace Nity_Pet_Rações.Forms.Forcedores
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.MaskedTextBox textBoxTelFornecedor;
+        private System.Windows.Forms.Label label5;
     }
 }

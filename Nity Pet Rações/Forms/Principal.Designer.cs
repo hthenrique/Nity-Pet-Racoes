@@ -59,7 +59,7 @@ namespace Nity_Pet_Rações
             this.buscarCpfBtn = new System.Windows.Forms.Button();
             this.cpfTextBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.produtoDados = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -268,7 +268,7 @@ namespace Nity_Pet_Rações
             this.panel6.Controls.Add(this.buscarCpfBtn);
             this.panel6.Controls.Add(this.cpfTextBox);
             this.panel6.Controls.Add(this.label13);
-            this.panel6.Controls.Add(this.label6);
+            this.panel6.Controls.Add(this.produtoDados);
             this.panel6.Controls.Add(this.label5);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
@@ -418,19 +418,19 @@ namespace Nity_Pet_Rações
             this.label13.TabIndex = 13;
             this.label13.Text = "CPF Cliente";
             // 
-            // label6
+            // produtoDados
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.produtoDados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label6.Location = new System.Drawing.Point(7, 143);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(807, 23);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Dados do Produto";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.produtoDados.BackColor = System.Drawing.Color.Transparent;
+            this.produtoDados.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.produtoDados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.produtoDados.Location = new System.Drawing.Point(7, 143);
+            this.produtoDados.Name = "produtoDados";
+            this.produtoDados.Size = new System.Drawing.Size(807, 23);
+            this.produtoDados.TabIndex = 3;
+            this.produtoDados.Text = "Dados do Produto";
+            this.produtoDados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
             // 
@@ -752,7 +752,7 @@ namespace Nity_Pet_Rações
         private System.Windows.Forms.Button buscarCpfBtn;
         private System.Windows.Forms.TextBox cpfTextBox;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label produtoDados;
         private System.Windows.Forms.Label label5;
     }
 }

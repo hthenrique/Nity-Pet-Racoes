@@ -45,8 +45,8 @@ namespace Nity_Pet_Rações.Forms.Forcedores
             this.panel1 = new System.Windows.Forms.Panel();
             this.atualizarListaBtn = new System.Windows.Forms.Button();
             this.addFornecedor = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.buscarForncedor = new System.Windows.Forms.Button();
+            this.textBoxBuscaFornecedor = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -155,8 +155,8 @@ namespace Nity_Pet_Rações.Forms.Forcedores
             // 
             this.panel1.Controls.Add(this.atualizarListaBtn);
             this.panel1.Controls.Add(this.addFornecedor);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.buscarForncedor);
+            this.panel1.Controls.Add(this.textBoxBuscaFornecedor);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -192,25 +192,26 @@ namespace Nity_Pet_Rações.Forms.Forcedores
             this.addFornecedor.UseVisualStyleBackColor = false;
             this.addFornecedor.Click += new System.EventHandler(this.addFornecedor_Click);
             // 
-            // button6
+            // buscarForncedor
             // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(153)))), ((int)(((byte)(243)))));
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(260, 20);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 32);
-            this.button6.TabIndex = 24;
-            this.button6.Text = "Buscar";
-            this.button6.UseVisualStyleBackColor = false;
+            this.buscarForncedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(153)))), ((int)(((byte)(243)))));
+            this.buscarForncedor.FlatAppearance.BorderSize = 0;
+            this.buscarForncedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buscarForncedor.ForeColor = System.Drawing.Color.White;
+            this.buscarForncedor.Location = new System.Drawing.Point(260, 20);
+            this.buscarForncedor.Name = "buscarForncedor";
+            this.buscarForncedor.Size = new System.Drawing.Size(75, 32);
+            this.buscarForncedor.TabIndex = 24;
+            this.buscarForncedor.Text = "Buscar";
+            this.buscarForncedor.UseVisualStyleBackColor = false;
+            this.buscarForncedor.Click += new System.EventHandler(this.buscarForncedor_Click);
             // 
-            // textBox1
+            // textBoxBuscaFornecedor
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(241, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBoxBuscaFornecedor.Location = new System.Drawing.Point(13, 27);
+            this.textBoxBuscaFornecedor.Name = "textBoxBuscaFornecedor";
+            this.textBoxBuscaFornecedor.Size = new System.Drawing.Size(241, 20);
+            this.textBoxBuscaFornecedor.TabIndex = 1;
             // 
             // label1
             // 
@@ -286,8 +287,8 @@ namespace Nity_Pet_Rações.Forms.Forcedores
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button atualizarListaBtn;
         private System.Windows.Forms.Button addFornecedor;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button buscarForncedor;
+        private System.Windows.Forms.TextBox textBoxBuscaFornecedor;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label3;

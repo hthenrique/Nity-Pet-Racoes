@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Nity_Pet_Rações.Banco_de_Dados;
+using Nity_Pet_Rações.Models;
 
 namespace Nity_Pet_Rações.Utils
 {
@@ -23,18 +24,18 @@ namespace Nity_Pet_Rações.Utils
             return deletar;
         }
 
-        public DataTable consultar(string tabela)
+        public string consultar(string tabela)
         {
 
-            DataTable dataTable = null;
+            string dados = null;
             switch (tabela)
             {
                 case "Fornecedor":
                     BDHelper bDHelper = new BDHelper();
-                    dataTable = bDHelper.consultarFornecedores();
+                    
                     break;
             }
-            return dataTable;
+            return dados;
         }
     }
 }

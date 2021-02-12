@@ -18,28 +18,93 @@ namespace Nity_Pet_Rações.Forms.Forcedores
             InitializeComponent();
         }
 
+        private void AdicionarFornecedor_Load(object sender, EventArgs e)
+        {
+            //telMask();
+        }
+
         private void salvarFornecedor_Click(object sender, EventArgs e)
         {
-            string nomeFornecedor = textBoxNomeFornecedor.Text.ToString();
-            string telFornecedor = textBoxEndFornecedor.Text.ToString();
-            string endFornecedor = this.textBoxTelFornecedor.Text.ToString();
+            addFornecedor();
+        }
 
-            ModelFornecedor modelFornecedor = new ModelFornecedor();
-            modelFornecedor.nomeFornecedor = nomeFornecedor;
-            modelFornecedor.telFornecedor = telFornecedor;
-            modelFornecedor.endFornecefor = endFornecedor;
-            Banco_de_Dados.BDHelper bDHelper = new Banco_de_Dados.BDHelper();
-
-            string novoFonecedor = bDHelper.inserirFornecedor(modelFornecedor);
-
-            if (string.IsNullOrEmpty(novoFonecedor))
+        private void textBoxNomeFornecedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
             {
-                this.Close();
+                addFornecedor();
+            }
+        }
+
+        private void textBoxTelFornecedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                addFornecedor();
+            }
+        }
+
+        private void textBoxEndFornecedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                addFornecedor();
+            }
+        }
+
+        private void addFornecedor()
+        {
+            ModelFornecedor modelFornecedor = new ModelFornecedor();
+            AdicionarFornecedorViewModel addFornecedorViewModel = new AdicionarFornecedorViewModel();
+            var validar = true;
+
+            modelFornecedor.nomeFornecedor = textBoxNomeFornecedor.Text.ToString().Trim();
+            modelFornecedor.telFornecedor = textBoxTelFornecedor.Text.ToString().Trim();
+            modelFornecedor.endFornecedor = textBoxEndFornecedor.Text.ToString().Trim();
+
+            if (textBoxNomeFornecedor.Text.Equals(""))
+            {
+                validar = false;
+            }
+            if (textBoxTelFornecedor.Text.Equals(""))
+            {
+                validar = false;
+            }
+            if (textBoxEndFornecedor.Text.Equals(""))
+            {
+                validar = false;
+            }
+
+            if (validar)
+            {
+                string novoFornecedor = addFornecedorViewModel.addFornecedor(modelFornecedor);
+
+                if (string.IsNullOrEmpty(novoFornecedor) || novoFornecedor == null)
+                {
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(novoFornecedor);
+                }
             }
             else
             {
-                MessageBox.Show(novoFonecedor);
+                MessageBox.Show("Há campo vazio", "Erro");
             }
+            
+        }
+
+        private void textBoxTelFornecedor_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void telMask()
+        {
+            long tel = Convert.ToInt64(textBoxTelFornecedor.Text);
+            string telFormatado = String.Format(@"{0:\(00)\00000\-\0000}", tel);
+            textBoxTelFornecedor.Text = telFormatado;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Nity_Pet_Rações.Utils;
+using Nity_Pet_Rações.Models;
 
 namespace Nity_Pet_Rações.Forms.Forcedores
 {
@@ -32,19 +33,26 @@ namespace Nity_Pet_Rações.Forms.Forcedores
 
             string message = "Deseja excluir esse fornecedor? " + nome;
             string caption = "Excluir Fornecedor";
-            MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            string returno = BDControlador.deletar(id, "Fornecedor");
+            var deletar = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(deletar == DialogResult.Yes)
+            {
+                string returno = BDControlador.deletar(id, "Fornecedor");
 
-            if (string.IsNullOrEmpty(returno))
-            {
-                MessageBox.Show("Deletado com Sucesso", "Sucesso");
-                listaFornecedores.DataSource = bDHelper.consultarFornecedores();
+                if (string.IsNullOrEmpty(returno))
+                {
+                    MessageBox.Show("Deletado com Sucesso", "Sucesso");
+                    listaFornecedores.DataSource = bDHelper.consultarFornecedores();
+                }
+                else
+                {
+                    MessageBox.Show(returno);
+                }
             }
-            else
+            if(deletar == DialogResult.No)
             {
-                MessageBox.Show(returno);
-            }
+                return;
+            }            
         }
 
         private void addFornecedor_Click(object sender, EventArgs e)
@@ -55,6 +63,12 @@ namespace Nity_Pet_Rações.Forms.Forcedores
         private void atualizarListaBtn_Click(object sender, EventArgs e)
         {
             listaFornecedores.DataSource = bDHelper.consultarFornecedores();
+        }
+
+        private void buscarForncedor_Click(object sender, EventArgs e)
+        {
+            string buscaFornecedor = textBoxBuscaFornecedor.Text.ToString().Trim();
+            listaFornecedores.DataSource = bDHelper.consultarFornecedor(buscaFornecedor);
         }
     }
 }

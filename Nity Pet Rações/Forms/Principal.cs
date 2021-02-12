@@ -16,6 +16,7 @@ namespace Nity_Pet_Rações
         private void Principal_Load(object sender, EventArgs e)
         {
             vendaFiadaCheck();
+            produtoDados.Visible = false;
         }
 
         private void vendaFiada_CheckedChanged(object sender, EventArgs e)

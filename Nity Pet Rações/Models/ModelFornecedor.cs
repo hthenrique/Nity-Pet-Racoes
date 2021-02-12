@@ -11,6 +11,6 @@ namespace Nity_Pet_Rações.Models
         public int idFornecedor { get; set; }
         public string nomeFornecedor { get; set; }
         public string telFornecedor { get; set; }
-        public string endFornecefor { get; set; }
+        public string endFornecedor { get; set; }
     }
 }

@@ -12,10 +12,8 @@ namespace Nity_Pet_Rações.Banco_de_Dados
     class BDHelper
     {
         SqlConnection sqlconnection;
-        SqlCommand sqlCommand;
-        SqlDataAdapter sqlDataAdapter;
+        SqlCommand sqlCommand;        
         SqlDataReader sqlDataReader;
-        DataSet dataSet;
 
         string bdCaminho = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\BDNity\BDNity.mdf;Integrated Security=True;Connect Timeout=30";
         string sqlString;
@@ -31,7 +29,7 @@ namespace Nity_Pet_Rações.Banco_de_Dados
 
                 sqlCommand.Parameters.AddWithValue("@NOME", fornecedor.nomeFornecedor.ToString());
                 sqlCommand.Parameters.AddWithValue("@TELEFONE", fornecedor.telFornecedor.ToString());
-                sqlCommand.Parameters.AddWithValue("@ENDERECO", fornecedor.endFornecefor.ToString());
+                sqlCommand.Parameters.AddWithValue("@ENDERECO", fornecedor.endFornecedor.ToString());
 
                 sqlconnection.Open();
                 sqlCommand.ExecuteNonQuery();
@@ -75,10 +73,10 @@ namespace Nity_Pet_Rações.Banco_de_Dados
             return string.Empty;
         }
 
-        public DataTable consultarFornecedores()
+        public List<ModelFornecedor> consultarFornecedores()
         {
+            List<ModelFornecedor> listaFornecedores = new List<ModelFornecedor>();
             sqlString = "SELECT * FROM Fornecedor";
-            DataTable dataTable = new DataTable();
             sqlconnection = new SqlConnection(bdCaminho);
             sqlCommand = new SqlCommand(sqlString, sqlconnection);
 
@@ -86,12 +84,57 @@ namespace Nity_Pet_Rações.Banco_de_Dados
             {
                 using (sqlCommand)
                 {
+                    sqlCommand.CommandType = CommandType.Text;
                     sqlconnection.Open();
                     sqlDataReader = sqlCommand.ExecuteReader();
-                    dataTable.Load(sqlDataReader);
+                    using (sqlDataReader)
+                    {
+                        while (sqlDataReader.Read())
+                        {
+                            listaFornecedores.Add(new ModelFornecedor
+                            {
+                                idFornecedor = Convert.ToInt32(sqlDataReader["idFornecedor"]),
+                                nomeFornecedor = sqlDataReader["nomeFornecedor"].ToString(),
+                                telFornecedor = sqlDataReader["telFornecedor"].ToString(),
+                                endFornecedor = sqlDataReader["endFornecedor"].ToString()
+                            });
+                        }
+                    }
                 }
             }
-            return dataTable;            
+            return listaFornecedores;            
+        }
+
+        public List<ModelFornecedor> consultarFornecedor(string fornecedor)
+        {
+            List<ModelFornecedor> listaFornecedor = new List<ModelFornecedor>();
+            sqlString = "SELECT * FROM Fornecedor WHERE nomeFornecedor LIKE '%" + fornecedor + "%'";
+            sqlconnection = new SqlConnection(bdCaminho);
+            sqlCommand = new SqlCommand(sqlString, sqlconnection);
+
+            using (sqlconnection)
+            {
+                using (sqlCommand)
+                {                    
+                    sqlCommand.CommandType = CommandType.Text;
+                    sqlconnection.Open();
+                    sqlDataReader = sqlCommand.ExecuteReader();
+                    using (sqlDataReader)
+                    {
+                        while (sqlDataReader.Read())
+                        {
+                            listaFornecedor.Add(new ModelFornecedor
+                            {
+                                idFornecedor = Convert.ToInt32(sqlDataReader["idFornecedor"]),
+                                nomeFornecedor = sqlDataReader["nomeFornecedor"].ToString(),
+                                telFornecedor = sqlDataReader["telFornecedor"].ToString(),
+                                endFornecedor = sqlDataReader["endFornecedor"].ToString()
+                            });
+                        }
+                    }          
+                }
+            }
+            return listaFornecedor;
         }
     }
 }
